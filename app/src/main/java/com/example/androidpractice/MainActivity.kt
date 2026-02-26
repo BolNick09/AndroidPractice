@@ -1,11 +1,14 @@
 package com.example.androidpractice
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.androidpractice.databinding.ActivityMainBinding
 import java.lang.System.currentTimeMillis
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -15,60 +18,25 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
     private val tag = "Test logging";
     private val callTime = currentTimeMillis();
+
     //Для форматирования даты из мс в человекочитаемый
     private val simpleDateFormat = SimpleDateFormat(
         "yyyy-MM-dd HH:mm:ss.SSS",
-        Locale.getDefault());
+        Locale.getDefault()
+    );
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var binding: ActivityMainBinding;
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnStart.setOnClickListener {
+            startActivity(
+                Intent(this, HomeActivity::class.java)
+            )
         }
-
-            val text = "onCreate called, time: ${simpleDateFormat.format(Date(callTime))}"
-            Log.d(tag, text);
-        }
-    override fun onStart() {
-        super.onStart()
-        logDelta("onStart")
     }
-
-    override fun onResume() {
-        super.onResume()
-        logDelta("onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        logDelta("onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        logDelta("onStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        logDelta("onRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        logDelta("onDestroy")
-    }
-
-    private fun logDelta(eventName: String) {
-        val now = currentTimeMillis();
-        val delta = now - callTime;
-
-        Log.d(tag, "$eventName called after $delta ms");
-    }
-
 }
