@@ -10,7 +10,7 @@
         android:id="@+id/btnCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Калькулятор"
+        android:text="@string/openCalcBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -19,8 +19,8 @@
         android:id="@+id/btnList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Список"
-        android:layout_marginTop="16dp"
+        android:text="@string/openListBtn"
+        android:layout_marginTop="@dimen/btnMrgTop"
         app:layout_constraintTop_toBottomOf="@id/btnCalculator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -29,8 +29,8 @@
         android:id="@+id/btnWeather"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Погода"
-        android:layout_marginTop="16dp"
+        android:text="@string/openWeatherBtn"
+        android:layout_marginTop="@dimen/btnMrgTop"
         app:layout_constraintTop_toBottomOf="@id/btnList"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
