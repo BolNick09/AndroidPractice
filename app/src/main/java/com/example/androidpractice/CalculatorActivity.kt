@@ -10,6 +10,4 @@ class CalculatorActivity : AppCompatActivity() {
     }
 }
 
-class ListActivity : AppCompatActivity()
-
 class WeatherActivity : AppCompatActivity()

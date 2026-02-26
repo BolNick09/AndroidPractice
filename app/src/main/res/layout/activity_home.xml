@@ -23,7 +23,8 @@
         android:layout_marginTop="@dimen/btnMrgTop"
         app:layout_constraintTop_toBottomOf="@id/btnCalculator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <Button
         android:id="@+id/btnWeather"
