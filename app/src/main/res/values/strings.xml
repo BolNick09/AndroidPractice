@@ -11,4 +11,9 @@
 
 <!--Calc screen-->
 
+
+<!--List screen-->
+    <string name="screen_list_title">Список автомобилей</string>
+    <string name="back">Назад</string>
+
 </resources>
