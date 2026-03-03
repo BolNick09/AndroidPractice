@@ -2,16 +2,10 @@ package com.example.androidpractice
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.androidpractice.databinding.ActivityMainBinding
 import java.lang.System.currentTimeMillis
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
 

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="btnMrgTop">16dp</dimen>
+
+<!--List screen-->
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="image_size">64dp</dimen>
 </resources>

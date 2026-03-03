@@ -1,9 +1,7 @@
 package com.example.androidpractice
 
-import android.app.ListActivity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidpractice.databinding.ActivityHomeBinding
 import kotlin.jvm.java
