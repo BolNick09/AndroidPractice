@@ -8,10 +8,17 @@
     <dimen name="image_size">64dp</dimen>
     <dimen name="text_size_large">24sp</dimen>
 
-
-
 <!--Weather screen-->
     <dimen name="card_margin">8dp</dimen>
     <dimen name="card_padding">16dp</dimen>
     <dimen name="text_size">18sp</dimen>
+
+<!--Calc screen-->
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="button_height">64dp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_large">24sp</dimen>
+    <dimen name="text_xlarge">32sp</dimen>
+
 </resources>
