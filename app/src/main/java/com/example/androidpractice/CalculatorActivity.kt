@@ -9,5 +9,3 @@ class CalculatorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calculator)
     }
 }
-
-class WeatherActivity : AppCompatActivity()

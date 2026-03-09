@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidpractice.databinding.ActivityHomeBinding
+import com.example.androidpractice.weather.presentation.WeatherActivity
 import kotlin.jvm.java
 
 class HomeActivity : AppCompatActivity() {
@@ -23,9 +24,10 @@ class HomeActivity : AppCompatActivity() {
         binding.btnList.setOnClickListener {
             startActivity(Intent(this, ListActivity::class.java))
         }
-
         binding.btnWeather.setOnClickListener {
-            startActivity(Intent(this, WeatherActivity::class.java))
+            startActivity(
+                Intent(this, WeatherActivity::class.java))
         }
+
     }
 }

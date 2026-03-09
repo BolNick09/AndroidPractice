@@ -15,5 +15,8 @@
 <!--List screen-->
     <string name="screen_list_title">Список автомобилей</string>
     <string name="back">Назад</string>
+<!--Weather screen-->
+    <string name="weather_title">Weather forecast</string>
+
 
 </resources>
