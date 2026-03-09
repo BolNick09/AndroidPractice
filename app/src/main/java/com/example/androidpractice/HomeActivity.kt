@@ -3,7 +3,9 @@ package com.example.androidpractice
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidpractice.calculator.presentation.CalculatorActivity
 import com.example.androidpractice.databinding.ActivityHomeBinding
+import com.example.androidpractice.cars.presentation.CarsActivity
 import com.example.androidpractice.weather.presentation.WeatherActivity
 import kotlin.jvm.java
 
@@ -22,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.btnList.setOnClickListener {
-            startActivity(Intent(this, ListActivity::class.java))
+            startActivity(Intent(this, CarsActivity::class.java))
         }
         binding.btnWeather.setOnClickListener {
             startActivity(

@@ -23,9 +23,9 @@
         </activity>
 
         <activity
-            android:name=".CalculatorActivity"/>
+            android:name=".calculator.presentation.CalculatorActivity"/>
         <activity
-            android:name=".ListActivity"/>
+            android:name=".cars.presentation.CarsActivity"/>
         <activity
             android:name=".weather.presentation.WeatherActivity"/>
         <activity
