@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.androidpractice.calculator.data.repository.CalculatorRepositoryImpl
+import com.example.androidpractice.calculator.domain.repository.CalculatorRepository
 import com.example.androidpractice.calculator.domain.usecase.CalculateExpressionUseCase
 
 class CalculatorViewModel : ViewModel() {
 
-    private val repository = CalculatorRepositoryImpl()
+    private val repository: CalculatorRepository = CalculatorRepositoryImpl()
     private val useCase = CalculateExpressionUseCase(repository)
 
     private val _result = MutableLiveData<String>()
