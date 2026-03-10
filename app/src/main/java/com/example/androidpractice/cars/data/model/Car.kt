@@ -1,4 +1,4 @@
-package com.example.androidpractice
+package com.example.androidpractice.cars.data.model
 
 data class Car(
     val brand: String,

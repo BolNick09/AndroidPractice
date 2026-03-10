@@ -1,27 +1,15 @@
-package com.example.androidpractice
+package com.example.androidpractice.cars.data.repository
 
-import android.os.Bundle
+import com.example.androidpractice.R
+import com.example.androidpractice.cars.data.model.Car
+import com.example.androidpractice.cars.domain.repository.CarRepository
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidpractice.databinding.ActivityListBinding
+class CarRepositoryImpl : CarRepository {
 
-class ListActivity : AppCompatActivity() {
+    override fun getCars(): List<Car> {
 
-    private lateinit var binding: ActivityListBinding
+        return listOf(
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        binding.toolbar.setNavigationOnClickListener {
-            finish()
-        }
-
-        val cars = listOf(
             Car("Toyota", "Camry", 2020, "Седан", 4500000, R.drawable.ic_car_placeholder),
             Car("BMW", "X5", 2019, "Кроссовер", 6500000, R.drawable.ic_car_placeholder),
             Car("Audi", "A6", 2021, "Бизнес-класс", 5900000, R.drawable.ic_car_placeholder),
@@ -47,8 +35,5 @@ class ListActivity : AppCompatActivity() {
             Car("BMW", "X5", 2019, "Кроссовер", 6500000, R.drawable.ic_car_placeholder),
             Car("Audi", "A6", 2021, "Бизнес-класс", 5900000, R.drawable.ic_car_placeholder),
         )
-
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = CarAdapter(cars)
     }
 }
