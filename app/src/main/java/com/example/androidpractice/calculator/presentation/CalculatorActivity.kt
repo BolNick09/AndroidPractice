@@ -1,34 +1,23 @@
 package com.example.androidpractice.calculator.presentation
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidpractice.R
 import com.example.androidpractice.databinding.ActivityCalculatorBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CalculatorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCalculatorBinding
 
-    private val viewModel: CalculatorViewModel by viewModels()
+    private val viewModel: CalculatorViewModel by viewModel()
 
     private var expression = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
 
         binding = ActivityCalculatorBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        setSupportActionBar(binding.calculatorToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.calculator_title)
-
-        binding.calculatorToolbar.setNavigationOnClickListener {
-            finish()
-        }
 
         setupButtons()
 

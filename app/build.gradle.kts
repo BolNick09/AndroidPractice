@@ -55,4 +55,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     implementation("net.objecthunter:exp4j:0.4.8")
+
+    val koinVersion = "4.0.0"
+
+    implementation("io.insert-koin:koin-android:$koinVersion")
+    implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
+    testImplementation("io.insert-koin:koin-test:$koinVersion")
 }
