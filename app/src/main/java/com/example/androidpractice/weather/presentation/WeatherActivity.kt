@@ -1,24 +1,17 @@
 package com.example.androidpractice.weather.presentation
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidpractice.R
 import com.example.androidpractice.databinding.ActivityWeatherBinding
-import com.example.androidpractice.weather.data.api.RetrofitClient
-import com.example.androidpractice.weather.data.repository.WeatherRepositoryImpl
-import com.example.androidpractice.weather.domain.usecase.GetWeatherForecastUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class WeatherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWeatherBinding
 
-    private val repository = WeatherRepositoryImpl(RetrofitClient.weatherApi)
-    private val getWeatherForecastUseCase = GetWeatherForecastUseCase(repository)
+    private val viewModel: WeatherViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -31,7 +24,9 @@ class WeatherActivity : AppCompatActivity() {
 
         binding.recyclerWeather.layoutManager = LinearLayoutManager(this)
 
-        loadWeather()
+        observeViewModel()
+
+        viewModel.loadWeather()
     }
 
     private fun setupToolbar() {
@@ -46,19 +41,16 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadWeather() {
+    private fun observeViewModel() {
 
-        lifecycleScope.launch {
+        viewModel.weather.observe(this) { days ->
 
-            val forecast = withContext(Dispatchers.IO) {
-                getWeatherForecastUseCase(
-                    latitude = 55.75,
-                    longitude = 37.61
-                )
-            }
+            binding.recyclerWeather.adapter = WeatherAdapter(days)
+        }
 
-            binding.recyclerWeather.adapter =
-                WeatherAdapter(forecast.days)
+        viewModel.error.observe(this) {
+
+            binding.recyclerWeather.adapter = WeatherAdapter(emptyList())
         }
     }
 }
