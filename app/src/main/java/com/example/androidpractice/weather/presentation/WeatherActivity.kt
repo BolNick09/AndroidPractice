@@ -1,17 +1,17 @@
 package com.example.androidpractice.weather.presentation
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidpractice.R
 import com.example.androidpractice.databinding.ActivityWeatherBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WeatherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWeatherBinding
 
-    private val viewModel: WeatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

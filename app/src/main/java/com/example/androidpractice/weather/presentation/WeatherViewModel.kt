@@ -4,18 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidpractice.weather.data.api.RetrofitClient
-import com.example.androidpractice.weather.data.repository.WeatherRepositoryImpl
 import com.example.androidpractice.weather.domain.model.ForecastDay
 import com.example.androidpractice.weather.domain.usecase.GetWeatherForecastUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class WeatherViewModel : ViewModel() {
-
-    private val repository = WeatherRepositoryImpl(RetrofitClient.weatherApi)
-    private val getWeatherForecastUseCase = GetWeatherForecastUseCase(repository)
+class WeatherViewModel(
+    private val getWeatherForecastUseCase: GetWeatherForecastUseCase
+) : ViewModel() {
 
     private val _weather = MutableLiveData<List<ForecastDay>>()
     val weather: LiveData<List<ForecastDay>> = _weather
