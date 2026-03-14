@@ -1,0 +1,39 @@
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.androidpractice.HomeFragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.androidpractice.MenuFragment">
+
+        <action
+            android:id="@+id/action_menuFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment"/>
+
+        <action
+            android:id="@+id/action_menuFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.androidpractice.calculator.presentation.CalculatorFragment"
+        android:label="@string/calculator"/>
+
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.androidpractice.weather.presentation.WeatherFragment"
+        android:label="@string/weather_title"/>
+
+</navigation>
