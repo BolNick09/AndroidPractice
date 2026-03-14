@@ -26,15 +26,7 @@
         </activity>
 
         <activity
-            android:name=".calculator.presentation.CalculatorActivity"/>
-        <activity
             android:name=".cars.presentation.CarsActivity"/>
-        <activity
-            android:name=".weather.presentation.WeatherActivity"/>
-        <activity
-            android:name=".HomeActivity"/>
-
-
 
     </application>
 
