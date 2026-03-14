@@ -38,6 +38,7 @@
     <string name="_Eq">=</string>
     <string name="start">Старт</string>
     <string name="calculator">Калькулятор</string>
+    <string name="home">В Меню</string>
 
 
 </resources>
