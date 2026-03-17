@@ -17,7 +17,7 @@
     <string name="screen_list_title">Список автомобилей</string>
     <string name="back">Назад</string>
 <!--Weather screen-->
-    <string name="weather_title">Weather forecast</string>
+    <string name="weather_title">Погода в Москве</string>
     <string name="_0">0</string>
     <string name="_Open">(</string>
     <string name="_Close">)</string>
@@ -36,6 +36,9 @@
     <string name="_Plus">+</string>
     <string name="_Dot">.</string>
     <string name="_Eq">=</string>
+    <string name="start">Старт</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="home">В Меню</string>
 
 
 </resources>

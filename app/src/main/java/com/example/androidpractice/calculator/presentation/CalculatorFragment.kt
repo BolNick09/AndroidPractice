@@ -1,43 +1,43 @@
 package com.example.androidpractice.calculator.presentation
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import com.example.androidpractice.R
-import com.example.androidpractice.databinding.ActivityCalculatorBinding
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.androidpractice.databinding.FragmentCalculatorBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CalculatorActivity : AppCompatActivity() {
+class CalculatorFragment : Fragment() {
 
-    private lateinit var binding: ActivityCalculatorBinding
+    private var _binding: FragmentCalculatorBinding? = null
+    private val binding get() = _binding!!
 
-    private val viewModel: CalculatorViewModel by viewModels()
+    private val viewModel: CalculatorViewModel by viewModel()
 
     private var expression = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentCalculatorBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        binding = ActivityCalculatorBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-
-        setSupportActionBar(binding.calculatorToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.calculator_title)
-
-        binding.calculatorToolbar.setNavigationOnClickListener {
-            finish()
-        }
-
+        setupToolbar()
         setupButtons()
 
-        viewModel.result.observe(this) {
-
+        viewModel.result.observe(viewLifecycleOwner) {
             binding.textResult.text = it
         }
     }
-
     private fun setupButtons() {
         binding.button0.setOnClickListener { append("0") }
         binding.button1.setOnClickListener { append("1") }
@@ -72,11 +72,22 @@ class CalculatorActivity : AppCompatActivity() {
             viewModel.calculate(expression)
         }
     }
+    private fun setupToolbar() {
+
+        val navController = findNavController()
+
+        binding.calculatorToolbar.setupWithNavController(navController)
+    }
 
     private fun append(value: String) {
 
         expression += value
 
         binding.textExpression.text = expression
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
