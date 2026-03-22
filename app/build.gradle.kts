@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.devtoolsKsp)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -65,4 +67,9 @@ dependencies {
     val nav_version = "2.7.7" 
     implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation ("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
 }
