@@ -2,6 +2,7 @@ package com.example.androidpractice
 
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.androidpractice.databinding.ActivityMainBinding
@@ -28,5 +29,19 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            when (destination.id) {
+
+                R.id.authFragment -> {
+                    binding.bottomNav.visibility = View.GONE
+                }
+
+                else -> {
+                    binding.bottomNav.visibility = View.VISIBLE
+                }
+            }
+        }
     }
 }

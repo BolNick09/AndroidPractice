@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -11,6 +11,15 @@
         <action
             android:id="@+id/action_homeFragment_to_menuFragment"
             app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.androidpractice.auth.presentation.AuthFragment">
+
+        <action
+            android:id="@+id/action_authFragment_to_homeFragment"
+            app:destination="@id/homeFragment"/>
     </fragment>
 
     <fragment
