@@ -19,7 +19,8 @@ class App : Application() {
 
             modules(
                 calculatorModule,
-                weatherModule
+                weatherModule,
+                authModule
             )
         }
     }
